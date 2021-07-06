@@ -1,3 +1,4 @@
+```python
 # copy from dbnet
 class EastRandomCropData():
     def __init__(self, size=(640, 640), p = 0.5 ,max_tries=50, min_crop_side_ratio=0.1, require_original_image=False, keep_ratio=True):
@@ -145,3 +146,5 @@ class EastRandomCropData():
                 return xmin, ymin, xmax - xmin, ymax - ymin
 
         return 0, 0, w, h
+
+```
