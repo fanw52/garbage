@@ -1,12 +1,14 @@
 # STAR(SpaTial Attention Residual network,BAIDU)
 
-* 目的：解决自然扭曲文本识别问题
+* 主要创新点
+ * 使用spatial transformer【STN】消除自然场景下文本扭曲的带来的识别问题,同时融合卷积残差模块强化特征抽取【防止梯度消失与特征退化】
 
-
+* 模型结构
+  ![模型结构](../data/STAR-Net.png)
 * spatial transformer network
   * Localisation Network
     * 学习仿射变换矩阵（无监督）
-    * CNN+FC回归K个点，即2K维向量得到，对于仿射变换，回归shape为2x3的仿射变换矩阵即可
+    * CNN+FC回归K个基准点，即2K维向量得到，对于仿射变换，回归shape为2x3的仿射变换矩阵即可
     * 论文RARE中回归K个点做样条变换，解决文本扭曲的问题
       
     
