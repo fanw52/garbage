@@ -9,6 +9,26 @@
 #### backone
 * CSP结构
 * Focus结构，对输入图片进行切片，切片后的数据叠加得到新的输入数据，切片规则：在行列上每隔N个像素进行一次采样，将采样后的结果进行拼接得到一张 (W/N,H/N,3)的图片。
+  * ` The main purpose of the Focus layer is to reduce layers, reduce parameters, reduce FLOPS, reduce CUDA memory, increase forward and backward speed while minimally impacting mAP.`
+     * FLOPs衡量模型的复杂度
+     ```python
+        import torch.nn as nn
+        from models.common import Focus, Conv, Bottleneck
+        from utils.torch_utils import profile 
+        # c1, c2, k=1, s=1
+        m1 = Focus(3, 64, 3)  # YOLOv5 single layer
+        m2 = nn.Sequential(Conv(c1=3, c2=32, k=3, s=1), Conv(32, 64, 3, 2), Bottleneck(64, 64))  # YOLOv3 equivalent layers
+        #  Bottleneck :  shorcut模块
+        profile(x=torch.randn(16, 3, 640, 640), ops=[m1, m2], n=100)  # profile both 100 times at batch-size 16
+     ```
+    ```text
+    1.8.1+cu101 cuda _CudaDeviceProperties(name='Tesla V100-SXM2-16GB', major=7, minor=0, total_memory=16160MB, multi_processor_count=80)
+
+      Params      GFLOPS    forward (ms)   backward (ms)                   input                  output
+        7040       23.07           4.958           12.76       (16, 3, 640, 640)      (16, 64, 320, 320)  # Focus()
+       40160       140.7           26.15             125       (16, 3, 640, 640)      (16, 64, 320, 320)  # YOLOv3 layers
+
+    ```
 * CBM结构，M为Mish，是一种更加平滑的激活函数
 
 #### neck
