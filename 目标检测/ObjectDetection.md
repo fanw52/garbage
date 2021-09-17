@@ -20,14 +20,14 @@
     m2 = nn.Sequential(Conv(c1=3, c2=32, k=3, s=1), Conv(32, 64, 3, 2), Bottleneck(64, 64))  # YOLOv3 equivalent layers
     #  Bottleneck :  shorcut模块
     profile(x=torch.randn(16, 3, 640, 640), ops=[m1, m2], n=100)  # profile both 100 times at batch-size 16
-     ```
+    ```
     ```text
     1.8.1+cu101 cuda _CudaDeviceProperties(name='Tesla V100-SXM2-16GB', major=7, minor=0, total_memory=16160MB, multi_processor_count=80)
-
+    
       Params      GFLOPS    forward (ms)   backward (ms)                   input                  output
         7040       23.07           4.958           12.76       (16, 3, 640, 640)      (16, 64, 320, 320)  # Focus()
        40160       140.7           26.15             125       (16, 3, 640, 640)      (16, 64, 320, 320)  # YOLOv3 layers
-
+    
     ```
 * CBM结构，M为Mish，是一种更加平滑的激活函数
 
@@ -46,14 +46,17 @@
   * 解决了训练过程与预测过程度量指标不一致的问题（原先采用目标boxe的偏移作为回归目标，预测过程采用目标重叠面积的交并比作为评价指标）
 * GIoU loss
   * 解决了IoU loss在目标框与预测框没有重叠面积时，梯度为0的情况
+  * 引入了最小外包围面积的概念，通过计算两个box在最小外包围面积中的占比来表述损失
 * DIoU loss
   * 引入目标框中心距离的概念，反映了预测框目标框完全包围情况下，回归目标的好坏程度
 * CIoU loss
   * 引入了box长宽比的概念，希望预测目标的长宽比例更倾向于标注目标。
     * 计算时需要用到标注框的宽与高，因此在推理的过程中无法使用CIoU NMS，转而使用DIoU NMS。
-
+* 正负样本的选择
+  * IoU作为分类的target
 
 #### NMS
+
 * DIoU NMS
 	* IoU-x,小于阈值则保留，大于阈值则过滤；x表示box的中心距与最小外包围对角线距离的比值
 	*  x越大（beta越小），越容易保留更多的目标框，通过调节beta值，可缓解遮挡物体的检测效果。
@@ -65,3 +68,8 @@
   * 两张图片以一定的比例进行图片叠加，标签按数量增加
 * CutMix
     * 把一张图抠出来，粘到另外一张图上去
+
+
+
+
+

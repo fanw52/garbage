@@ -5,4 +5,3 @@
 * 基于语义分割方法的文字检测模型度量方法有哪些？
   * PA:PA(pixel accuracy),与分类问题一样，计算平均准确率
   * mIoU：最小度量单位依旧是pixel，IoU_i = tp_i/(tp_i+fp_i+fn_i)
-  
