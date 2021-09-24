@@ -10,8 +10,9 @@
 * CSP结构
 * Focus结构，对输入图片进行切片，切片后的数据叠加得到新的输入数据，切片规则：在行列上每隔N个像素进行一次采样，将采样后的结果进行拼接得到一张 (W/N,H/N,3)的图片。
   * ` The main purpose of the Focus layer is to reduce layers, reduce parameters, reduce FLOPS, reduce CUDA memory, increase forward and backward speed while minimally impacting mAP.`
+    
      * FLOPs衡量模型的复杂度
-     ```python
+    ```python
     import torch.nn as nn
     from models.common import Focus, Conv, Bottleneck
     from utils.torch_utils import profile 
@@ -40,6 +41,7 @@
   * Spatial Pyramid Pooling(空间金字塔池化),用多个不同尺寸的核，对特征进行池化，并将池化后的后果进行拼接，得到固定长度的特征表达，用于后续的分类（优势：降低目标大小对分类的影响）
 
 #### loss
+
 * smooth l1 loss
 	* 自变量在0附近为二次函数，远离0是一次函数，好处是：训练初期，loss较大，可以提高模型拟合的稳定性，训练后期，损失值很小，梯度也会减小（在不调节学习率的情况下，相比于一次函数），可防止模型在局部震荡。
 * IoU loss
@@ -49,6 +51,7 @@
   * 引入了最小外包围面积的概念，通过计算两个box在最小外包围面积中的占比来表述损失
 * DIoU loss
   * 引入目标框中心距离的概念，反映了预测框目标框完全包围情况下，回归目标的好坏程度
+  * 为了加速收敛，引入了中心距离的损失项
 * CIoU loss
   * 引入了box长宽比的概念，希望预测目标的长宽比例更倾向于标注目标。
     * 计算时需要用到标注框的宽与高，因此在推理的过程中无法使用CIoU NMS，转而使用DIoU NMS。
@@ -68,8 +71,3 @@
   * 两张图片以一定的比例进行图片叠加，标签按数量增加
 * CutMix
     * 把一张图抠出来，粘到另外一张图上去
-
-
-
-
-
