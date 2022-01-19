@@ -45,7 +45,7 @@
 
       
 
-  CSPDarkNet结构图
+  CSPDarkNet结构图[Cross Stage Partial Network]
 
   <img src="YOLOX.assets/image-20210922224842189.png" alt="image-20210922224842189" style="zoom: 33%;" />
 
