@@ -1,0 +1,1134 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
+    
+    
+      
+        <title>LayoutLM系列 - 个人垃圾场</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#layoutlm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="个人垃圾场" class="md-header__button md-logo" aria-label="个人垃圾场" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            个人垃圾场
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LayoutLM系列
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="个人垃圾场" class="md-nav__button md-logo" aria-label="个人垃圾场" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    个人垃圾场
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        机器学习基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          文字识别
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文字识别" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          文字识别
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OCR/dataset/" class="md-nav__link">
+        开源数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OCR/%E6%96%87%E5%AD%97%E6%A3%80%E6%B5%8B/%E6%96%87%E5%AD%97%E6%A3%80%E6%B5%8B/" class="md-nav__link">
+        文字检测
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OCR/%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" class="md-nav__link">
+        文字识别
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          目标检测
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="目标检测" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          目标检测
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/YOLO_v5/" class="md-nav__link">
+        YOLO-v5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/YOLOX/" class="md-nav__link">
+        YOLOX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/YOLO_Faster_v2/" class="md-nav__link">
+        YOLO-Faster-v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/DETR/" class="md-nav__link">
+        DETR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          结构化抽取
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="结构化抽取" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          结构化抽取
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E9%9B%86/" class="md-nav__link">
+        数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LayoutLM系列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LayoutLM系列
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layoutlm_1" class="md-nav__link">
+    LayoutLM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layoutlmv2" class="md-nav__link">
+    LayoutLMV2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layoutxlm" class="md-nav__link">
+    LayoutXLM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    注
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    思考总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    表格识别
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paper/StrucText/" class="md-nav__link">
+        StrucTexT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          表格识别
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表格识别" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          表格识别
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/" class="md-nav__link">
+        表格识别
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          损失函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="损失函数" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          损失函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/AmSoftmax/" class="md-nav__link">
+        AmSoftmax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/CenterLoss/" class="md-nav__link">
+        CenterLoss
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          数据增强
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据增强" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          数据增强
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
+        图像数据增强
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          服务部署
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="服务部署" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          服务部署
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/TensorRT/" class="md-nav__link">
+        TensorRT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layoutlm_1" class="md-nav__link">
+    LayoutLM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layoutlmv2" class="md-nav__link">
+    LayoutLMV2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layoutxlm" class="md-nav__link">
+    LayoutXLM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    注
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    思考总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    表格识别
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="layoutlm">LayoutLM系列<a class="headerlink" href="#layoutlm" title="Permanent link">&para;</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>LayoutLM系列是一种多模态的版面分析工作，从下游命名实体抽取任务来看，相比基于BERT的NER任务，LayoutLM 在输入端会额外编码图像上下文信息，
+  图像文本位置信息，从预训练语言模型的角度，LayoutLM提出了Text-Image Alignment任务，Text-Image Matching任务。</li>
+</ul>
+<h2 id="layoutlm_1">LayoutLM<a class="headerlink" href="#layoutlm_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Pretrain</li>
+<li>输入<ul>
+<li>text embedding</li>
+<li>position x0 embedding</li>
+<li>position y0 embedding</li>
+<li>position x1 embedding</li>
+<li>position y1 embedding（相当于text position embedding）</li>
+<li>每个位置输入一个英文单词，以及该单词在图片上的位置编码（分别用矩形左上角的点【x0,y0】，右下角的点【x1,y1】进行位置编码）</li>
+</ul>
+</li>
+<li>
+<p>模型结构</p>
+<ul>
+<li>模型结构如下：
+    <img alt="模型结构" src="../data/LayoutLM.png" />    </li>
+</ul>
+</li>
+<li>
+<p>task</p>
+<ul>
+<li>masked visual-language model</li>
+<li>随机mask一些tokens,但保留位置信息，模型预测被mask的token</li>
+<li>multi-label document classfication</li>
+<li>文档图片的多标签分类任务</li>
+</ul>
+</li>
+<li>
+<p>Finetune</p>
+</li>
+<li>
+<p>dataset</p>
+<ul>
+<li>FUNSD(199张图片，标注了位置，文字，以及实体类型)</li>
+</ul>
+</li>
+<li>
+<p>下游任务</p>
+<ul>
+<li>命名实体识别</li>
+<li>输入</li>
+<li>image embedding（注意：图片信息只在finetune阶段引入）<ul>
+<li>图片中每个box的image embedding(RoI)</li>
+</ul>
+</li>
+<li>bert encode embedding</li>
+</ul>
+</li>
+</ul>
+<h2 id="layoutlmv2">LayoutLMV2<a class="headerlink" href="#layoutlmv2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>特点</li>
+<li>除了text embedding，还引入了2D-position embedding和image embedding，利用transformer结构，融合图像信息和文本信息</li>
+<li>相比LayoutLM,LayoutLMv2在预训练阶段引入图片信息，可以让transformer结构更加充分学习文本和图像的跨模态信息</li>
+<li>
+<p>Pretrain</p>
+</li>
+<li>
+<p>输入</p>
+<ul>
+<li>visual embedding</li>
+<li>resnet编码后的image embedding, [w,h,512]</li>
+<li>Layout embeding</li>
+<li>版面布局信息，即文本框，以及文本区域的2D位置信息，用6个维度表示:<span class="arithmatex"><span class="MathJax_Preview">(x_1,y_1,x_2,y_2,w,h)</span><script type="math/tex">(x_1,y_1,x_2,y_2,w,h)</script></span></li>
+<li>text embedding </li>
+<li>2D position embedding（图片及文本框的位置编码，用四个x维的向量叠加）</li>
+<li>图片中的位置转one hot再线性变换成指定维度</li>
+<li>visiual embedding部分的2D position通过感受野映射回原始图像的坐标上</li>
+<li>1D position embedding(类似于bert的位置编码)</li>
+<li>segment embedding</li>
+</ul>
+</li>
+<li>Spatial-aware self-attention mechanism<ul>
+<li>Self-attention输入的包括visual-text embedding, 2D-position embedding,1D-position embedding,segment-embedding</li>
+<li>原始的transformer结构，使用text-embedding+position embedding计算注意力权重，表示query和key的关系</li>
+<li>layoutlmv2中使用偏置项模拟了语义相对位置（1d）和空间相对位置(2d)，不同与attention-head，它会在所有的编码层共享</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">\alpha'_{ij}=\alpha_{ij}+b^{1D}_{j-i}+b^{2D_x}_{x_j-x_i}+b^{2D_y}_{y_j-y_i}</span><script type="math/tex">\alpha'_{ij}=\alpha_{ij}+b^{1D}_{j-i}+b^{2D_x}_{x_j-x_i}+b^{2D_y}_{y_j-y_i}</script></span>​</li>
+<li>原因：attention计算的过程加入了两个不可知的线性变换后，会丢失相对位置关系，因此，可以主动加上相对位置关系</li>
+</ul>
+</li>
+<li>模型结构<ul>
+<li>模型结构如下：
+    <img alt="模型结构" src="../data/LayoutLMv2.png" />  </li>
+</ul>
+</li>
+<li>task<ul>
+<li>Text-image matching文本图片匹配是否匹配的任务，类似于bert中两条文本是否是上下句</li>
+<li>text-image alignment，预测文本（单词）是否被覆盖</li>
+<li>masked visual-languange model,预测被mask掉的文字</li>
+</ul>
+</li>
+<li>visual embedding不止4个，由feature map的尺寸决定（W*H个），图片分类finetune用[CLS]</li>
+</ul>
+<h2 id="layoutxlm"><a href="https://github.com/microsoft/unilm/tree/master/layoutxlm">LayoutXLM</a><a class="headerlink" href="#layoutxlm" title="Permanent link">&para;</a></h2>
+<ul>
+<li>特点</li>
+<li>
+<p>多模态**多语言**的预训练模型</p>
+</li>
+<li>
+<p>Pretrain</p>
+</li>
+<li>
+<p>model</p>
+<ul>
+<li>XLM模型（提出并验证词表的分割方法对下游任务的影响）</li>
+</ul>
+</li>
+<li>
+<p>输入（与LayoutLMv2一致）</p>
+<ul>
+<li>segment embedding(区分图片和文本,bert中用于区分上下句) </li>
+<li>1D position embedding(确定文字位置编码以及图片区域位置)</li>
+<li>2D position embedding(图片位置【分割后的文档位置】以及文本框位置)</li>
+<li>visual/text token embedding(图片以及文本编码)
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">_cal_spatial_position_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bbox</span><span class="p">):</span>
+      <span class="k">try</span><span class="p">:</span>
+          <span class="n">left_position_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_position_embeddings</span><span class="p">(</span><span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
+          <span class="n">upper_position_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_position_embeddings</span><span class="p">(</span><span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span>
+          <span class="n">right_position_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_position_embeddings</span><span class="p">(</span><span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+          <span class="n">lower_position_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_position_embeddings</span><span class="p">(</span><span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">])</span>
+      <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+          <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;The :obj:`bbox`coordinate values should be within 0-1000 range.&quot;</span><span class="p">)</span>
+
+      <span class="n">h_position_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_position_embeddings</span><span class="p">(</span><span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span>
+      <span class="n">w_position_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_position_embeddings</span><span class="p">(</span><span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">bbox</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
+
+      <span class="n">spatial_position_embeddings</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span>
+          <span class="p">[</span>
+              <span class="n">left_position_embeddings</span><span class="p">,</span>
+              <span class="n">upper_position_embeddings</span><span class="p">,</span>
+              <span class="n">right_position_embeddings</span><span class="p">,</span>
+              <span class="n">lower_position_embeddings</span><span class="p">,</span>
+              <span class="n">h_position_embeddings</span><span class="p">,</span>
+              <span class="n">w_position_embeddings</span><span class="p">,</span>
+          <span class="p">],</span>
+          <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+      <span class="p">)</span>
+      <span class="k">return</span> <span class="n">spatial_position_embeddings</span>
+</code></pre></div></li>
+<li>疑惑：（x1,y1,x2,y2,w,h），为什么要引入w,h?单纯的增加特征？</li>
+</ul>
+</li>
+<li>
+<p>task</p>
+<ul>
+<li>Text-image matching文本图片匹配是否匹配的任务，类似于bert中两条文本是否是上下句</li>
+<li>text-image alignment，预测文本（单词）是否被覆盖</li>
+<li>masked visual-languange model,预测被mask掉的文字</li>
+</ul>
+</li>
+<li>
+<p>Finetune</p>
+</li>
+<li>
+<p>dataset</p>
+<ul>
+<li>XFUN(7种语言，1393张数据)</li>
+</ul>
+</li>
+<li>
+<p>下游任务</p>
+<ul>
+<li>
+<p>语义实体识别</p>
+<ul>
+<li>BIO标签</li>
+<li>检测识别获取文本框的位置，相比其他pipeline方法（检测+识别+NER），额外利用了文本位置信息,当前方法并不是一个end2end的方法。</li>
+</ul>
+</li>
+<li>
+<p>关系抽取</p>
+<ul>
+<li>获取(head,tail)关系对，做分类任务</li>
+</ul>
+</li>
+<li>试验结果
+<img alt="XFUND" src="../data/XFUND.png" /></li>
+<li>从中文试验结果来看，增加文本位置信息，可以小幅度提高测试集的准确率</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">注<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>XLM：英文单词的切割方式会影响预训练语言模型在finetune时的精度。</li>
+<li>暂时不可用，没有开源预训练语言模型，2021.07.07,LayoutLMV2可用</li>
+<li>数据通过解析PDF得到,预训练数据30 million(XFUN,benchmark中包含1393张表单数据，共七种语言，每种语言199张全文标注)</li>
+</ul>
+<h2 id="_3">思考总结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>基于transformer的多模态预训练模型，在文字的基础上融入图像，文本框位置等信息，进行token预测、字符是否被mask、图像文字知否匹配的预训练任务。</p>
+</li>
+<li>
+<p>另外，百度近期也有一个类似的工作:<a href="../paper/StrucText/">StrucText</a></p>
+</li>
+</ul>
+<h2 id="_4">表格识别<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><a href="https://mp.weixin.qq.com/s/BS4sBV_Y47p4PgHJhOEFlw">来也方案</a></p>
+<p><img alt="image-20220110222228824" src="../%E7%89%88%E9%9D%A2%E5%88%86%E6%9E%90.assets/image-20220110222228824.png" /></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../%E6%95%B0%E6%8D%AE%E9%9B%86/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 数据集" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              数据集
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../paper/StrucText/" class="md-footer__link md-footer__link--next" aria-label="Next: StrucTexT" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              StrucTexT
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.01de222e.min.js"></script>
+      
+    
+  </body>
+</html>
