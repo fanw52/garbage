@@ -1,4 +1,4 @@
-# YOLO-FasterV2
+# YOLO-Faster-v2
 
 * 追求速度
 * 方法

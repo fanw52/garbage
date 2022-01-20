@@ -1,6 +1,4 @@
-# 目标检测
-
-### yolov5
+# YOLO-v5
 
 #### input
 * AutoAnchor：每次新建训练任务，会根据当前的训练数据，重新计算anchor

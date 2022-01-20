@@ -1,4 +1,4 @@
-# 版面分析
+# LayoutLM系列
 
 ## 简介
 * LayoutLM系列是一种多模态的版面分析工作，从下游命名实体抽取任务来看，相比基于BERT的NER任务，LayoutLM 在输入端会额外编码图像上下文信息，
@@ -84,33 +84,33 @@
     * 1D position embedding(确定文字位置编码以及图片区域位置)
     * 2D position embedding(图片位置【分割后的文档位置】以及文本框位置)
     * visual/text token embedding(图片以及文本编码)
-        ```python
-       def _cal_spatial_position_embeddings(self, bbox):
-            try:
-                left_position_embeddings = self.x_position_embeddings(bbox[:, :, 0])
-                upper_position_embeddings = self.y_position_embeddings(bbox[:, :, 1])
-                right_position_embeddings = self.x_position_embeddings(bbox[:, :, 2])
-                lower_position_embeddings = self.y_position_embeddings(bbox[:, :, 3])
-            except IndexError as e:
-                raise IndexError("The :obj:`bbox`coordinate values should be within 0-1000 range.")
-       
-            h_position_embeddings = self.h_position_embeddings(bbox[:, :, 3] - bbox[:, :, 1])
-            w_position_embeddings = self.w_position_embeddings(bbox[:, :, 2] - bbox[:, :, 0])
-       
-            spatial_position_embeddings = torch.cat(
-                [
-                    left_position_embeddings,
-                    upper_position_embeddings,
-                    right_position_embeddings,
-                    lower_position_embeddings,
-                    h_position_embeddings,
-                    w_position_embeddings,
-                ],
-                dim=-1,
-            )
-            return spatial_position_embeddings
-        # 疑惑：（x1,y1,x2,y2,w,h），为什么要引入w,h?单纯的增加特征？
-       ```
+    ```python
+    def _cal_spatial_position_embeddings(self, bbox):
+          try:
+              left_position_embeddings = self.x_position_embeddings(bbox[:, :, 0])
+              upper_position_embeddings = self.y_position_embeddings(bbox[:, :, 1])
+              right_position_embeddings = self.x_position_embeddings(bbox[:, :, 2])
+              lower_position_embeddings = self.y_position_embeddings(bbox[:, :, 3])
+          except IndexError as e:
+              raise IndexError("The :obj:`bbox`coordinate values should be within 0-1000 range.")
+     
+          h_position_embeddings = self.h_position_embeddings(bbox[:, :, 3] - bbox[:, :, 1])
+          w_position_embeddings = self.w_position_embeddings(bbox[:, :, 2] - bbox[:, :, 0])
+     
+          spatial_position_embeddings = torch.cat(
+              [
+                  left_position_embeddings,
+                  upper_position_embeddings,
+                  right_position_embeddings,
+                  lower_position_embeddings,
+                  h_position_embeddings,
+                  w_position_embeddings,
+              ],
+              dim=-1,
+          )
+          return spatial_position_embeddings
+    ```
+      * 疑惑：（x1,y1,x2,y2,w,h），为什么要引入w,h?单纯的增加特征？
     
   * task
       * Text-image matching文本图片匹配是否匹配的任务，类似于bert中两条文本是否是上下句
@@ -133,21 +133,16 @@
     * 从中文试验结果来看，增加文本位置信息，可以小幅度提高测试集的准确率
       
 
-* 注
+##  注
   * XLM：英文单词的切割方式会影响预训练语言模型在finetune时的精度。
   * 暂时不可用，没有开源预训练语言模型，2021.07.07,LayoutLMV2可用
   * 数据通过解析PDF得到,预训练数据30 million(XFUN,benchmark中包含1393张表单数据，共七种语言，每种语言199张全文标注)
+  
+## 思考总结
 
-* 问题：
+* 基于transformer的多模态预训练模型，在文字的基础上融入图像，文本框位置等信息，进行token预测、字符是否被mask、图像文字知否匹配的预训练任务。
 
-  * 在预测阶段图片信息是否输入到网络中？
-    * 目测是需要的，与纯文本任务不同的是，
-
-### 思考总结
-
-基于transformer的多模态预训练模型，在文字的基础上融入图像，文本框位置等信息，进行token预测、字符是否被mask、图像文字知否匹配的预训练任务。
-
-另外，百度近期也有一个[类似的工作][./版面分析/paper/StrucText.md]
+* 另外，百度近期也有一个类似的工作:[StrucText](./paper/StrucText.md)
 
 
 
@@ -157,4 +152,3 @@
 
 ![image-20220110222228824](版面分析.assets/image-20220110222228824.png)
 
-[./版面分析/paper/StrucText.md]:

@@ -1,13 +1,33 @@
-site_name: My Docs
+site_name: 个人垃圾场
 theme:
   name: material
 
 nav:
-  - OCR:
-    - OCR/dataset.md
-    - OCR/文字检测/文字检测.md
-    - OCR/文字识别/文字识别.md
-  - 介绍: index.md
+  - 基础:
+      - 基础知识/基础知识.md
+      - 基础知识/机器学习.md
+  - 文字识别:
+      - OCR/dataset.md
+      - OCR/文字检测/文字检测.md
+      - OCR/文字识别/文字识别.md
+  - 目标检测:
+      - 目标检测/Paper/YOLO_v5.md
+      - 目标检测/Paper/YOLOX.md
+      - 目标检测/Paper/YOLO_Faster_v2.md
+      - 目标检测/Paper/DETR.md
+  - 结构化抽取:
+      - 结构化抽取/数据集.md
+      - 结构化抽取/layoutlm.md
+      - 结构化抽取/paper/StrucText.md
+  - 表格识别:
+      - 表格识别/表格识别.md
+  - 损失函数:
+      - 损失函数/AmSoftmax.md
+      - 损失函数/CenterLoss.md
+  - 数据增强:
+      - 数据增强/图像数据增强/图像数据增强.md
+  - 服务部署:
+      - 服务部署/TensorRT.md
 
 
 markdown_extensions:
