@@ -737,9 +737,9 @@
 <li>从模型结构示意图可以看出，在解码阶段</li>
 <li>首先用multi-head attention计算当前时刻的输入编码，得到tmp_feature,相当于LSTM中将时刻t-1的输出输入到模型中</li>
 <li>随后获取encoder部分的输出，分别作为Key和quary,计算获得注意力权重，并利用该权重对tmp_feature（value）重新分配</li>
-<li>为了降低计算量，本篇文章使用了memery-cache的手段，存储<span class="arithmatex"><span class="MathJax_Preview">K_t=x_tW_K</span><script type="math/tex">K_t=x_tW_K</script></span>​​与<span class="arithmatex"><span class="MathJax_Preview">V_t=x_tW_v</span><script type="math/tex">V_t=x_tW_v</script></span>​​​ ，由于解码阶段依旧是step-by-step的计算方式，每个时刻需要计算<span class="arithmatex"><span class="MathJax_Preview">(XW_k)(XW_q)^T(XW_v)</span><script type="math/tex">(XW_k)(XW_q)^T(XW_v)</script></span>​，因此，使用memery-cache手段，存储每个时刻计算的结果，可加快推理速度。</li>
-<li>t=1,KQV = [<span class="arithmatex"><span class="MathJax_Preview">x_{t0}W_K</span><script type="math/tex">x_{t0}W_K</script></span>] [<span class="arithmatex"><span class="MathJax_Preview">y_{t0}Wq</span><script type="math/tex">y_{t0}Wq</script></span>​] [<span class="arithmatex"><span class="MathJax_Preview">x_{t0}W_V</span><script type="math/tex">x_{t0}W_V</script></span>]</li>
-<li>t=1,KQV = [<span class="arithmatex"><span class="MathJax_Preview">x_{t0}W_K;x_{t1}W_K</span><script type="math/tex">x_{t0}W_K;x_{t1}W_K</script></span>​] [<span class="arithmatex"><span class="MathJax_Preview">y_{t1}Wq</span><script type="math/tex">y_{t1}Wq</script></span>​] [<span class="arithmatex"><span class="MathJax_Preview">x_{t0}W_V;x_{t1}W_V</span><script type="math/tex">x_{t0}W_V;x_{t1}W_V</script></span>​​]</li>
+<li>为了降低计算量，本篇文章使用了memery-cache的手段，存储<span class="arithmatex">\(K_t=x_tW_K\)</span>​​与<span class="arithmatex">\(V_t=x_tW_v\)</span>​​​ ，由于解码阶段依旧是step-by-step的计算方式，每个时刻需要计算<span class="arithmatex">\((XW_k)(XW_q)^T(XW_v)\)</span>​，因此，使用memery-cache手段，存储每个时刻计算的结果，可加快推理速度。</li>
+<li>t=1,KQV = [<span class="arithmatex">\(x_{t0}W_K\)</span>] [<span class="arithmatex">\(y_{t0}Wq\)</span>​] [<span class="arithmatex">\(x_{t0}W_V\)</span>]</li>
+<li>t=1,KQV = [<span class="arithmatex">\(x_{t0}W_K;x_{t1}W_K\)</span>​] [<span class="arithmatex">\(y_{t1}Wq\)</span>​] [<span class="arithmatex">\(x_{t0}W_V;x_{t1}W_V\)</span>​​]</li>
 <li>...</li>
 <li>从上面的地推计算公式可以看出，每个时刻计算需要用到历史的计算结果，此时将历史的计算结果存储在内存中，就可以降低计算速度</li>
 <li>解码时，当前时刻的结果，是前面t-1个时刻attention后重新分配得到的，我们把每个时刻计算</li>
@@ -752,20 +752,20 @@
 </ul>
 </li>
 <li>Q2：推理加速？<ul>
-<li>每个时刻的输出结果都是前<span class="arithmatex"><span class="MathJax_Preview">t-1</span><script type="math/tex">t-1</script></span>时刻，都是特征加权平均再分配的结果，由于<span class="arithmatex"><span class="MathJax_Preview">W_k,W_v,W_q</span><script type="math/tex">W_k,W_v,W_q</script></span>固定，<span class="arithmatex"><span class="MathJax_Preview">X_t</span><script type="math/tex">X_t</script></span>固定，那么对于历史时刻的</li>
+<li>每个时刻的输出结果都是前<span class="arithmatex">\(t-1\)</span>时刻，都是特征加权平均再分配的结果，由于<span class="arithmatex">\(W_k,W_v,W_q\)</span>固定，<span class="arithmatex">\(X_t\)</span>固定，那么对于历史时刻的</li>
 </ul>
 </li>
-<li>Q3： s2s任务的流程，transformer encode部分编码输入序列，获得特征<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>；<ul>
-<li>训练阶段：【decode】部分的输入是target sequence词嵌入，用transformer编码，得到target sequence编码后的向量表示，作为【Query】。同时【Encode】部分的<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>分别作为【Key】和【Value】。其中，【Key】和【Query】计算得到【Attention】权重，作用在【Value】上，得到当前时刻的隐向量，需要注意的是，这里会引入下三角矩阵，防止信息泄露。</li>
+<li>Q3： s2s任务的流程，transformer encode部分编码输入序列，获得特征<span class="arithmatex">\(X\)</span>；<ul>
+<li>训练阶段：【decode】部分的输入是target sequence词嵌入，用transformer编码，得到target sequence编码后的向量表示，作为【Query】。同时【Encode】部分的<span class="arithmatex">\(X\)</span>分别作为【Key】和【Value】。其中，【Key】和【Query】计算得到【Attention】权重，作用在【Value】上，得到当前时刻的隐向量，需要注意的是，这里会引入下三角矩阵，防止信息泄露。</li>
 <li>推理阶段：【decode】部分的输入，是前一个时刻预测的结果，随后会经word embedding、transformer，作为【Query】与【encode】部分的【Key】计算【Attention】权重。</li>
 </ul>
 </li>
 <li>Q4: 如何理解【memery-cache】?<ul>
-<li>memery-cache是transformer在解码阶段加速的手段，保存计算attention所需要的结果:<span class="arithmatex"><span class="MathJax_Preview">k_t,v_t,q_t</span><script type="math/tex">k_t,v_t,q_t</script></span> ，其中：</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">k_i=W_k*x_t;K=[k_1;k_2;....;k_t]</span><script type="math/tex">k_i=W_k*x_t;K=[k_1;k_2;....;k_t]</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">q_i=W_q*x_t;Q=[q_1;q_2;....;q_t]</span><script type="math/tex">q_i=W_q*x_t;Q=[q_1;q_2;....;q_t]</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">v_i=W_v*x_t;V=[v_1;v_2;....;v_t]</span><script type="math/tex">v_i=W_v*x_t;V=[v_1;v_2;....;v_t]</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">att = softmax(KQ)</span><script type="math/tex">att = softmax(KQ)</script></span></li>
+<li>memery-cache是transformer在解码阶段加速的手段，保存计算attention所需要的结果:<span class="arithmatex">\(k_t,v_t,q_t\)</span> ，其中：</li>
+<li><span class="arithmatex">\(k_i=W_k*x_t;K=[k_1;k_2;....;k_t]\)</span></li>
+<li><span class="arithmatex">\(q_i=W_q*x_t;Q=[q_1;q_2;....;q_t]\)</span></li>
+<li><span class="arithmatex">\(v_i=W_v*x_t;V=[v_1;v_2;....;v_t]\)</span></li>
+<li><span class="arithmatex">\(att = softmax(KQ)\)</span></li>
 </ul>
 </li>
 </ul>

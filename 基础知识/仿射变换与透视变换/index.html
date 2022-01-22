@@ -712,14 +712,14 @@
 
 <h1 id="_1">仿射变换与透视变换<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>opencv中的相关接口</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 获取仿射变换、透视变换矩阵</span>
-<span class="n">cv2</span><span class="o">.</span><span class="n">getAffineTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span> <span class="c1"># 给定三组对应点，求仿射变换矩阵</span>
-<span class="n">cv2</span><span class="o">.</span><span class="n">getPerspectiveTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span> <span class="c1">#给定四组对应点，求透视变换矩阵</span>
-<span class="c1"># 对【点】进行【仿射变换】或者【透视变换】</span>
-<span class="n">cv2</span><span class="o">.</span><span class="n">perspectiveTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">M</span><span class="p">)</span> <span class="c1"># 对点【src】按照变换矩阵M进行变换 </span>
-<span class="c1"># 对【矩阵】进行【仿射变换】、【透视变换】</span>
-<span class="n">cv2</span><span class="o">.</span><span class="n">warpAffine</span><span class="p">()</span>
-<span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">dsize</span><span class="p">)</span> <span class="c1"># 对输入【img】按照变换矩阵M，进行变换，输出图片大小为dsize【裁剪】，变换中间可能存在【插值】</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 获取仿射变换、透视变换矩阵</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">cv2</span><span class="o">.</span><span class="n">getAffineTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span> <span class="c1"># 给定三组对应点，求仿射变换矩阵</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">cv2</span><span class="o">.</span><span class="n">getPerspectiveTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span> <span class="c1">#给定四组对应点，求透视变换矩阵</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 对【点】进行【仿射变换】或者【透视变换】</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">cv2</span><span class="o">.</span><span class="n">perspectiveTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">M</span><span class="p">)</span> <span class="c1"># 对点【src】按照变换矩阵M进行变换 </span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 对【矩阵】进行【仿射变换】、【透视变换】</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">cv2</span><span class="o">.</span><span class="n">warpAffine</span><span class="p">()</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">dsize</span><span class="p">)</span> <span class="c1"># 对输入【img】按照变换矩阵M，进行变换，输出图片大小为dsize【裁剪】，变换中间可能存在【插值】</span>
 </code></pre></div>
 
               

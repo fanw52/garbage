@@ -733,16 +733,16 @@ tasks to learn a richer representation. StrucTexT uses the existing Masked Visua
 <p><img alt="image-20220109141535442" src="../StrucText.assets/image-20220109141535442.png" /></p>
 <ul>
 <li>Layout embedding</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">L = Emb_𝑙 (𝑥0,𝑦0, 𝑥1,𝑦1,𝑤, ℎ)</span><script type="math/tex">L = Emb_𝑙 (𝑥0,𝑦0, 𝑥1,𝑦1,𝑤, ℎ)</script></span></li>
+<li><span class="arithmatex">\(L = Emb_𝑙 (𝑥0,𝑦0, 𝑥1,𝑦1,𝑤, ℎ)\)</span></li>
 <li>对于没有字符级别或者单词级别标注的，采用segment-level级别标注结果估计单词或字符位置</li>
 <li>Language token embedding</li>
 <li>language token embedding<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">T = Emb𝑡 (S) + L</span><script type="math/tex">T = Emb𝑡 (S) + L</script></span> </li>
+<li><span class="arithmatex">\(T = Emb𝑡 (S) + L\)</span> </li>
 <li>$S = {[CLS], 𝑐_1^1, · · · , 𝑐_{𝑙_1}^1, · · · , 𝑐_1^n, · · · , 𝑐_{𝑙_𝑛}^𝑛, [SEP]} $</li>
 </ul>
 </li>
 <li>Visual segment emebedding</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">V = Emb_𝑣 (ROIAlign(CNN(𝐼), 𝑏)) + L</span><script type="math/tex">V = Emb_𝑣 (ROIAlign(CNN(𝐼), 𝑏)) + L</script></span></li>
+<li><span class="arithmatex">\(V = Emb_𝑣 (ROIAlign(CNN(𝐼), 𝑏)) + L\)</span></li>
 <li>Segment ID embedding:  </li>
 <li>每个text segment 分配唯一一个id</li>
 <li>other embedding</li>

@@ -713,20 +713,20 @@
 <h1 id="ctc">从动态规划理解CTC算法<a class="headerlink" href="#ctc" title="Permanent link">&para;</a></h1>
 <ul>
 <li>CTC算法解决了标签不对齐问题，ctc loss的大小为所有可以表示为target sequence的概率和的负对数。所以，CTC算法就转变成路径概率和的求解过程【动态规划】。</li>
-<li>显而易见，这是一个二维动态规划问题（分别是字符空间与时间空间），我们设 <span class="arithmatex"><span class="MathJax_Preview">dp[t][s]</span><script type="math/tex">dp[t][s]</script></span> 表示时刻 <span class="arithmatex"><span class="MathJax_Preview">1:t</span><script type="math/tex">1:t</script></span>，由前 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 个字符构成路径 <span class="arithmatex"><span class="MathJax_Preview">l_{1:s}</span><script type="math/tex">l_{1:s}</script></span> 的概率（<span class="arithmatex"><span class="MathJax_Preview">1:s</span><script type="math/tex">1:s</script></span>表示路径<span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span>由前s个元素构成，<strong>并且可以转化为label的路径</strong>）</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">dp[t][s]</span><script type="math/tex">dp[t][s]</script></span>可以由哪些状态转移过来呢？<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">dp[t][s]=dp[t-1][s]*p_t(s)</span><script type="math/tex">dp[t][s]=dp[t-1][s]*p_t(s)</script></span>  【前后时刻预测为相同字符】<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">dp[t-1][s]</span><script type="math/tex">dp[t-1][s]</script></span>： 前<span class="arithmatex"><span class="MathJax_Preview">t-1</span><script type="math/tex">t-1</script></span>个时刻构成<span class="arithmatex"><span class="MathJax_Preview">l_{1:s}</span><script type="math/tex">l_{1:s}</script></span>的概率，乘以<span class="arithmatex"><span class="MathJax_Preview">p_t(s)</span><script type="math/tex">p_t(s)</script></span>得到<span class="arithmatex"><span class="MathJax_Preview">l_{1:s}</span><script type="math/tex">l_{1:s}</script></span>的概率</li>
+<li>显而易见，这是一个二维动态规划问题（分别是字符空间与时间空间），我们设 <span class="arithmatex">\(dp[t][s]\)</span> 表示时刻 <span class="arithmatex">\(1:t\)</span>，由前 <span class="arithmatex">\(s\)</span> 个字符构成路径 <span class="arithmatex">\(l_{1:s}\)</span> 的概率（<span class="arithmatex">\(1:s\)</span>表示路径<span class="arithmatex">\(l\)</span>由前s个元素构成，<strong>并且可以转化为label的路径</strong>）</li>
+<li><span class="arithmatex">\(dp[t][s]\)</span>可以由哪些状态转移过来呢？<ul>
+<li><span class="arithmatex">\(dp[t][s]=dp[t-1][s]*p_t(s)\)</span>  【前后时刻预测为相同字符】<ul>
+<li><span class="arithmatex">\(dp[t-1][s]\)</span>： 前<span class="arithmatex">\(t-1\)</span>个时刻构成<span class="arithmatex">\(l_{1:s}\)</span>的概率，乘以<span class="arithmatex">\(p_t(s)\)</span>得到<span class="arithmatex">\(l_{1:s}\)</span>的概率</li>
 </ul>
 </li>
-<li><span class="arithmatex"><span class="MathJax_Preview">dp[t][s]=dp[t-1][s-1]*p_t(s)</span><script type="math/tex">dp[t][s]=dp[t-1][s-1]*p_t(s)</script></span>  【前后时刻预测为不同字符】<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">dp[t-1][s-1]</span><script type="math/tex">dp[t-1][s-1]</script></span> ：前<span class="arithmatex"><span class="MathJax_Preview">t-1</span><script type="math/tex">t-1</script></span>个时刻构成<span class="arithmatex"><span class="MathJax_Preview">l_{1:s-1}</span><script type="math/tex">l_{1:s-1}</script></span>的概率,乘以<span class="arithmatex"><span class="MathJax_Preview">p_t(s)</span><script type="math/tex">p_t(s)</script></span>得到<span class="arithmatex"><span class="MathJax_Preview">l_{1:s}</span><script type="math/tex">l_{1:s}</script></span>的概率</li>
+<li><span class="arithmatex">\(dp[t][s]=dp[t-1][s-1]*p_t(s)\)</span>  【前后时刻预测为不同字符】<ul>
+<li><span class="arithmatex">\(dp[t-1][s-1]\)</span> ：前<span class="arithmatex">\(t-1\)</span>个时刻构成<span class="arithmatex">\(l_{1:s-1}\)</span>的概率,乘以<span class="arithmatex">\(p_t(s)\)</span>得到<span class="arithmatex">\(l_{1:s}\)</span>的概率</li>
 </ul>
 </li>
-<li><span class="arithmatex"><span class="MathJax_Preview">dp[t][s]=dp[t-1][s-2]*p_t(s)</span><script type="math/tex">dp[t][s]=dp[t-1][s-2]*p_t(s)</script></span>  <ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">dp[t-1][s-2]</span><script type="math/tex">dp[t-1][s-2]</script></span>：前<span class="arithmatex"><span class="MathJax_Preview">t-1</span><script type="math/tex">t-1</script></span>个时刻构成<span class="arithmatex"><span class="MathJax_Preview">l_{1:s-2}</span><script type="math/tex">l_{1:s-2}</script></span>的概率,乘以<span class="arithmatex"><span class="MathJax_Preview">p_t(s)</span><script type="math/tex">p_t(s)</script></span>得到<span class="arithmatex"><span class="MathJax_Preview">l_{1:s}</span><script type="math/tex">l_{1:s}</script></span>的概率，只在部分情况下生效<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">s!=[blank]</span><script type="math/tex">s!=[blank]</script></span></li>
-<li>位置<span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span>,位置<span class="arithmatex"><span class="MathJax_Preview">s-2</span><script type="math/tex">s-2</script></span>元素不相等</li>
+<li><span class="arithmatex">\(dp[t][s]=dp[t-1][s-2]*p_t(s)\)</span>  <ul>
+<li><span class="arithmatex">\(dp[t-1][s-2]\)</span>：前<span class="arithmatex">\(t-1\)</span>个时刻构成<span class="arithmatex">\(l_{1:s-2}\)</span>的概率,乘以<span class="arithmatex">\(p_t(s)\)</span>得到<span class="arithmatex">\(l_{1:s}\)</span>的概率，只在部分情况下生效<ul>
+<li><span class="arithmatex">\(s!=[blank]\)</span></li>
+<li>位置<span class="arithmatex">\(s\)</span>,位置<span class="arithmatex">\(s-2\)</span>元素不相等</li>
 </ul>
 </li>
 </ul>

@@ -1039,7 +1039,7 @@
 </ul>
 </li>
 <li>参数量<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">K * K * C_{in} * C_{out}</span><script type="math/tex">K * K * C_{in} * C_{out}</script></span>​</li>
+<li><span class="arithmatex">\(K * K * C_{in} * C_{out}\)</span>​</li>
 </ul>
 </li>
 </ul>
@@ -1051,20 +1051,20 @@
 <li>加法计算量：无</li>
 </ul>
 </li>
-<li>总计算量（不考虑加法）： <span class="arithmatex"><span class="MathJax_Preview">K * K * W * H * C_{out}</span><script type="math/tex">K * K * W * H * C_{out}</script></span></li>
+<li>总计算量（不考虑加法）： <span class="arithmatex">\(K * K * W * H * C_{out}\)</span></li>
 </ul>
 </li>
 <li>pointwise conv<ul>
 <li>卷积一次的计算量<ul>
-<li>乘法计算量：<span class="arithmatex"><span class="MathJax_Preview">C_{in}</span><script type="math/tex">C_{in}</script></span></li>
-<li>加法计算量：<span class="arithmatex"><span class="MathJax_Preview">C_{in}-1</span><script type="math/tex">C_{in}-1</script></span></li>
+<li>乘法计算量：<span class="arithmatex">\(C_{in}\)</span></li>
+<li>加法计算量：<span class="arithmatex">\(C_{in}-1\)</span></li>
 </ul>
 </li>
-<li>总计算量（不考虑加法）： <span class="arithmatex"><span class="MathJax_Preview">C_{in}*W*H*C_{out}</span><script type="math/tex">C_{in}*W*H*C_{out}</script></span></li>
+<li>总计算量（不考虑加法）： <span class="arithmatex">\(C_{in}*W*H*C_{out}\)</span></li>
 </ul>
 </li>
-<li>总计算量：<span class="arithmatex"><span class="MathJax_Preview">K * K * W * H * C_{out} + C_{in} * W * H * C_{out}</span><script type="math/tex">K * K * W * H * C_{out} + C_{in} * W * H * C_{out}</script></span>​​</li>
-<li>深度可分离卷积计算量是传统卷积计算量的：<span class="arithmatex"><span class="MathJax_Preview">1/C_{in} + 1/K**2</span><script type="math/tex">1/C_{in} + 1/K**2</script></span>​​</li>
+<li>总计算量：<span class="arithmatex">\(K * K * W * H * C_{out} + C_{in} * W * H * C_{out}\)</span>​​</li>
+<li>深度可分离卷积计算量是传统卷积计算量的：<span class="arithmatex">\(1/C_{in} + 1/K**2\)</span>​​</li>
 </ul>
 </li>
 <li>deformable conv<ul>
@@ -1084,7 +1084,7 @@
 </ul>
 </li>
 <li>感受野计算<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">RF_i = (RF_{i-1}-1)*s+k</span><script type="math/tex">RF_i = (RF_{i-1}-1)*s+k</script></span></li>
+<li><span class="arithmatex">\(RF_i = (RF_{i-1}-1)*s+k\)</span></li>
 </ul>
 </li>
 <li>卷积的矩阵运算<ul>
@@ -1157,7 +1157,7 @@
 <li>
 <p>输出feature map的尺寸</p>
 <ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">(l-k+2p)/s+1</span><script type="math/tex">(l-k+2p)/s+1</script></span></li>
+<li><span class="arithmatex">\((l-k+2p)/s+1\)</span></li>
 </ul>
 </li>
 </ul>
@@ -1197,7 +1197,7 @@
 <ul>
 <li>调整了数据分布，不考虑激活函数，将每一层的输出特征归一化到均值为0，方差为1的分布，保证了梯度的有效性</li>
 <li>可以使用更大的学习率，跳出局部极值</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">\mu\subset\R^{W*H*C}</span><script type="math/tex">\mu\subset\R^{W*H*C}</script></span>​</li>
+<li><span class="arithmatex">\(\mu\subset\R^{W*H*C}\)</span>​</li>
 </ul>
 </li>
 </ul>
@@ -1206,10 +1206,10 @@
 <p>训练</p>
 <ul>
 <li>计算每一个batch内的均值与方差迭代并利用滑动平均的方法更新均值方差<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">X = \beta*X + (1-\beta)*\mu</span><script type="math/tex">X = \beta*X + (1-\beta)*\mu</script></span>​​​</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">V_{100}=0.9V_{99}+0.1\theta_{100}</span><script type="math/tex">V_{100}=0.9V_{99}+0.1\theta_{100}</script></span>​</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">V_{99}=0.9V_{98}+0.1\theta_{99}</span><script type="math/tex">V_{99}=0.9V_{98}+0.1\theta_{99}</script></span>​​</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">V_{98}=0.9V_{97}+0.1\theta_{98}</span><script type="math/tex">V_{98}=0.9V_{97}+0.1\theta_{98}</script></span>​​</li>
+<li><span class="arithmatex">\(X = \beta*X + (1-\beta)*\mu\)</span>​​​</li>
+<li><span class="arithmatex">\(V_{100}=0.9V_{99}+0.1\theta_{100}\)</span>​</li>
+<li><span class="arithmatex">\(V_{99}=0.9V_{98}+0.1\theta_{99}\)</span>​​</li>
+<li><span class="arithmatex">\(V_{98}=0.9V_{97}+0.1\theta_{98}\)</span>​​</li>
 <li>.....</li>
 <li>相当于 0.1*theta_100+ 0.09*theta_99+...(平均了历史100条数据)</li>
 </ul>
@@ -1228,14 +1228,14 @@
 <li>batch size太小均值与方差的计算不稳定<ul>
 <li>利用beta与gamma将归一化后的特征还原回去</li>
 <li><code>normalizing the inputs of a sigmoid would constrain them to the linear regime of the nonlinearity</code></li>
-<li>归一化sigmoid函数的输入x，会使得特征x,落到非线性特征函数的线性区域，进而会使得模型的表达能力降低，因此，引入了<span class="arithmatex"><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>与<span class="arithmatex"><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span>，实现恒等映射，让模型根据数据做出合适的选择。</li>
+<li>归一化sigmoid函数的输入x，会使得特征x,落到非线性特征函数的线性区域，进而会使得模型的表达能力降低，因此，引入了<span class="arithmatex">\(\gamma\)</span>与<span class="arithmatex">\(\beta\)</span>，实现恒等映射，让模型根据数据做出合适的选择。</li>
 <li>CBA(conv,bn,activate)</li>
 </ul>
 </li>
 <li>rnn:不能简单使用BN，因为同一个batch内，数据的有效长度不一致，通过padding的方式，会引入很多无效的信息<ul>
 <li>layer normalization<ul>
 <li>每个样本维护一个参数，均值与方差都是D-dim的参数</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">\mu\subset\Re^{D}</span><script type="math/tex">\mu\subset\Re^{D}</script></span></li>
+<li><span class="arithmatex">\(\mu\subset\Re^{D}\)</span></li>
 </ul>
 </li>
 </ul>
@@ -1271,7 +1271,7 @@
 </ul>
 </li>
 <li>Mish<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">Mish=x * tanh(ln(1+e^x))</span><script type="math/tex">Mish=x * tanh(ln(1+e^x))</script></span><ul>
+<li><span class="arithmatex">\(Mish=x * tanh(ln(1+e^x))\)</span><ul>
 <li>无上边界，避免数值较大进入饱和区</li>
 <li>在绝对值较小的负值区域允许一些负值，保证信息更好地流通</li>
 <li>平滑的激活函数允许更好的信息流深入网路<ul>
@@ -1283,14 +1283,14 @@
 </ul>
 </li>
 <li>Swish<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">swish = x * sigmoid(x)</span><script type="math/tex">swish = x * sigmoid(x)</script></span>​</li>
+<li><span class="arithmatex">\(swish = x * sigmoid(x)\)</span>​</li>
 <li>平滑，非单调，无上界，有下界</li>
 </ul>
 </li>
 <li>
 <p>Hswish</p>
 <ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">hswish=x*relu6(x+3)/6</span><script type="math/tex">hswish=x*relu6(x+3)/6</script></span></li>
+<li><span class="arithmatex">\(hswish=x*relu6(x+3)/6\)</span></li>
 <li>hswish与swish形状上差不多，但是计算量小于hswish，mobilenetv3中使用该函数进行替代</li>
 </ul>
 </li>
@@ -1301,15 +1301,15 @@
 </ul>
 </li>
 <li>sigmoid<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">sigmoid = 1/(1+e^x)</span><script type="math/tex">sigmoid = 1/(1+e^x)</script></span>​</li>
+<li><span class="arithmatex">\(sigmoid = 1/(1+e^x)\)</span>​</li>
 </ul>
 </li>
 </ul>
 <h2 id="softmax">softmax<a class="headerlink" href="#softmax" title="Permanent link">&para;</a></h2>
 <ul>
-<li>公式 <span class="arithmatex"><span class="MathJax_Preview">softmax(x) = e^{x_j}/sum(e^{x_i})</span><script type="math/tex">softmax(x) = e^{x_j}/sum(e^{x_i})</script></span>​​</li>
+<li>公式 <span class="arithmatex">\(softmax(x) = e^{x_j}/sum(e^{x_i})\)</span>​​</li>
 <li>怎么防止溢出<ul>
-<li>分子分母同时除以最大值 <span class="arithmatex"><span class="MathJax_Preview">exp(x_j-c)/sum(exp(x_i-c))</span><script type="math/tex">exp(x_j-c)/sum(exp(x_i-c))</script></span></li>
+<li>分子分母同时除以最大值 <span class="arithmatex">\(exp(x_j-c)/sum(exp(x_i-c))\)</span></li>
 </ul>
 </li>
 <li>
@@ -1321,8 +1321,8 @@
 <li>
 <p>log-softmax</p>
 <ul>
-<li>计算cross entropy时，可能会出现<span class="arithmatex"><span class="MathJax_Preview">y*log(p) = y* log(0)</span><script type="math/tex">y*log(p) = y* log(0)</script></span>的情况</li>
-<li>为了避免这种情况，采用log-softmax的计算方式需要稍稍改变 <span class="arithmatex"><span class="MathJax_Preview">log-softmax = x_i - c - log(sum(exp(x_j-c)))</span><script type="math/tex">log-softmax = x_i - c - log(sum(exp(x_j-c)))</script></span></li>
+<li>计算cross entropy时，可能会出现<span class="arithmatex">\(y*log(p) = y* log(0)\)</span>的情况</li>
+<li>为了避免这种情况，采用log-softmax的计算方式需要稍稍改变 <span class="arithmatex">\(log-softmax = x_i - c - log(sum(exp(x_j-c)))\)</span></li>
 </ul>
 </li>
 </ul>
@@ -1354,8 +1354,8 @@
 </li>
 <li>BPTT推导？<ul>
 <li>RNN公式<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">h_t = sigma(W_t x_t+W_h h_{t-1})</span><script type="math/tex">h_t = sigma(W_t x_t+W_h h_{t-1})</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">y_t = sigma(W_o h_t)</span><script type="math/tex">y_t = sigma(W_o h_t)</script></span></li>
+<li><span class="arithmatex">\(h_t = sigma(W_t x_t+W_h h_{t-1})\)</span></li>
+<li><span class="arithmatex">\(y_t = sigma(W_o h_t)\)</span></li>
 </ul>
 </li>
 <li>反向传播<ul>
@@ -1365,17 +1365,17 @@
 </ul>
 </li>
 <li>LSTM的公式以及结构是什么？<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">i_t=\sigma(W_i[h_{t-1};x_t]+b_i)</span><script type="math/tex">i_t=\sigma(W_i[h_{t-1};x_t]+b_i)</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">f_t=\sigma(W_f[h_{t-1};x_t]+b_f)</span><script type="math/tex">f_t=\sigma(W_f[h_{t-1};x_t]+b_f)</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">C'_t=tanh(W_c [h_{t-1};x_t]+b_c)</span><script type="math/tex">C'_t=tanh(W_c [h_{t-1};x_t]+b_c)</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">C_t=i_t \odot C'_t+f_t \odot C_{t-1}</span><script type="math/tex">C_t=i_t \odot C'_t+f_t \odot C_{t-1}</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">o_t=\sigma(W_o[h_{t-1};x_t]+b_o)</span><script type="math/tex">o_t=\sigma(W_o[h_{t-1};x_t]+b_o)</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">h_t=o_t \odot tanh(C_t)</span><script type="math/tex">h_t=o_t \odot tanh(C_t)</script></span>​</li>
+<li><span class="arithmatex">\(i_t=\sigma(W_i[h_{t-1};x_t]+b_i)\)</span></li>
+<li><span class="arithmatex">\(f_t=\sigma(W_f[h_{t-1};x_t]+b_f)\)</span></li>
+<li><span class="arithmatex">\(C'_t=tanh(W_c [h_{t-1};x_t]+b_c)\)</span></li>
+<li><span class="arithmatex">\(C_t=i_t \odot C'_t+f_t \odot C_{t-1}\)</span></li>
+<li><span class="arithmatex">\(o_t=\sigma(W_o[h_{t-1};x_t]+b_o)\)</span></li>
+<li><span class="arithmatex">\(h_t=o_t \odot tanh(C_t)\)</span>​</li>
 <li>输入门控制前一个时刻隐状态的保留，遗忘门控制前一个时刻cell的保留，输出门控制前一个时刻的隐状态有多少能被输出</li>
 <li>
-<p>其中，LSTM中的<span class="arithmatex"><span class="MathJax_Preview">h-t</span><script type="math/tex">h-t</script></span>相当于RNN中的<span class="arithmatex"><span class="MathJax_Preview">y_t</span><script type="math/tex">y_t</script></span>，<span class="arithmatex"><span class="MathJax_Preview">C_t</span><script type="math/tex">C_t</script></span>相当于RNN中的<span class="arithmatex"><span class="MathJax_Preview">h_t</span><script type="math/tex">h_t</script></span></p>
+<p>其中，LSTM中的<span class="arithmatex">\(h-t\)</span>相当于RNN中的<span class="arithmatex">\(y_t\)</span>，<span class="arithmatex">\(C_t\)</span>相当于RNN中的<span class="arithmatex">\(h_t\)</span></p>
 <ul>
-<li>在反向传播的过程中t时刻的残差将会是一个与<span class="arithmatex"><span class="MathJax_Preview">f_t</span><script type="math/tex">f_t</script></span>​相关的量，此时可以控制遗忘门的参数使其接近1，那么基于链式法则求得的梯度也不会太小。</li>
+<li>在反向传播的过程中t时刻的残差将会是一个与<span class="arithmatex">\(f_t\)</span>​相关的量，此时可以控制遗忘门的参数使其接近1，那么基于链式法则求得的梯度也不会太小。</li>
 <li>LSTM为什么会防止梯度爆炸?</li>
 </ul>
 </li>
@@ -1390,11 +1390,11 @@
 </ul>
 </li>
 <li>维特比解码<ul>
-<li>时间复杂度：<span class="arithmatex"><span class="MathJax_Preview">O(TN^2)</span><script type="math/tex">O(TN^2)</script></span>​</li>
+<li>时间复杂度：<span class="arithmatex">\(O(TN^2)\)</span>​</li>
 </ul>
 </li>
 <li>相关知识<ul>
-<li>马尔科夫假设：状态<span class="arithmatex"><span class="MathJax_Preview">X_t</span><script type="math/tex">X_t</script></span>只受状态<span class="arithmatex"><span class="MathJax_Preview">X_{t-1}</span><script type="math/tex">X_{t-1}</script></span>​​的影响，相当于1-gram</li>
+<li>马尔科夫假设：状态<span class="arithmatex">\(X_t\)</span>只受状态<span class="arithmatex">\(X_{t-1}\)</span>​​的影响，相当于1-gram</li>
 <li>马尔科夫过程：每个状态的转移只依赖前n个状态，并且只是一个n阶模型</li>
 </ul>
 </li>
@@ -1422,7 +1422,7 @@
 <li>随着模型的加深，训练误差增加，测试误差增加【网络退化】，可能因为层数较深，引发了梯度消失/梯度爆炸等问题，阻碍了网络的优化<ul>
 <li>BN层，可以缓解梯度消失或爆炸的问题</li>
 <li>resnet引入恒等映射结构，提出了残差模块，保证浅层的特征，可以通过恒等映射直接到达深层特征。</li>
-<li>反传过程中，保证残差的信息量<span class="arithmatex"><span class="MathJax_Preview">1+f(x)</span><script type="math/tex">1+f(x)</script></span></li>
+<li>反传过程中，保证残差的信息量<span class="arithmatex">\(1+f(x)\)</span></li>
 </ul>
 </li>
 </ul>
@@ -1437,7 +1437,7 @@
 <li>逐点卷积（pointwise convolution：1x1）</li>
 </ul>
 </li>
-<li>深度可分离卷积+逐点卷积（计算量：<span class="arithmatex"><span class="MathJax_Preview">K*K*W*H*C_i+K*K*W*H</span><script type="math/tex">K*K*W*H*C_i+K*K*W*H</script></span>）替代普通卷积(计算量<span class="arithmatex"><span class="MathJax_Preview">K*K*W*H*C_i*C_o</span><script type="math/tex">K*K*W*H*C_i*C_o</script></span>),计算量约为原先的&#8539;</li>
+<li>深度可分离卷积+逐点卷积（计算量：<span class="arithmatex">\(K*K*W*H*C_i+K*K*W*H\)</span>）替代普通卷积(计算量<span class="arithmatex">\(K*K*W*H*C_i*C_o\)</span>),计算量约为原先的&#8539;</li>
 </ul>
 </li>
 <li>
@@ -1460,7 +1460,7 @@
 <li>inverted residuals</li>
 <li>SE模块（squeeze and excitation）<ul>
 <li>squeeze<ul>
-<li>对<span class="arithmatex"><span class="MathJax_Preview">[W,H,C]</span><script type="math/tex">[W,H,C]</script></span>的feature map做global avg pooling得到<span class="arithmatex"><span class="MathJax_Preview">[1,1,C]</span><script type="math/tex">[1,1,C]</script></span>的特征图</li>
+<li>对<span class="arithmatex">\([W,H,C]\)</span>的feature map做global avg pooling得到<span class="arithmatex">\([1,1,C]\)</span>的特征图</li>
 </ul>
 </li>
 <li>excitation<ul>
@@ -1475,12 +1475,12 @@
 <h2 id="transformer">transformer<a class="headerlink" href="#transformer" title="Permanent link">&para;</a></h2>
 <ul>
 <li>transformer为什么不能表示位置关系?<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">q_i k_j = (x_i+p_i) W_q [(x_j+p_j) W_k].T</span><script type="math/tex">q_i k_j = (x_i+p_i) W_q [(x_j+p_j) W_k].T</script></span>，假如删除p_i和p_j,那么无论x_i和x_j处于什么位置，其计算结果都相同</li>
+<li><span class="arithmatex">\(q_i k_j = (x_i+p_i) W_q [(x_j+p_j) W_k].T\)</span>，假如删除p_i和p_j,那么无论x_i和x_j处于什么位置，其计算结果都相同</li>
 </ul>
 </li>
 <li>为什么word embedding、position embedding用add而不是concat?<ul>
 <li>使用add可以降低输入的维度，减少计算量</li>
-<li>存在<span class="arithmatex"><span class="MathJax_Preview">W_x</span><script type="math/tex">W_x</script></span>​和<span class="arithmatex"><span class="MathJax_Preview">W_y</span><script type="math/tex">W_y</script></span>​使得<span class="arithmatex"><span class="MathJax_Preview">(x_i+p_i)* W_y = [x_i;p_i] * W_x</span><script type="math/tex">(x_i+p_i)* W_y = [x_i;p_i] * W_x</script></span>​​成立，因此我们说，使用concat可以等效看作使用add</li>
+<li>存在<span class="arithmatex">\(W_x\)</span>​和<span class="arithmatex">\(W_y\)</span>​使得<span class="arithmatex">\((x_i+p_i)* W_y = [x_i;p_i] * W_x\)</span>​​成立，因此我们说，使用concat可以等效看作使用add</li>
 </ul>
 </li>
 <li>transformer里面的MLM(masked language model)有什么作用（传统语言模型：预测下一个词）？<ul>
@@ -1535,9 +1535,9 @@
 <li>RoI Pooling:将感兴趣区域划分成K*K个区域，再进行池化，如果遇到不能整数划分的情况，向上取整或者向下取整</li>
 <li>RoI Align：通过双线性插值的方法，解决了边界点是非整数点丢失特征的情况。</li>
 <li>双线性插值公式<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">\varphi(x,y)=\Sigma_{i,j=1}\varphi(x_i,y_i)max(0,1-|x-x_i|)max(0,1-|y-y_i|)</span><script type="math/tex">\varphi(x,y)=\Sigma_{i,j=1}\varphi(x_i,y_i)max(0,1-|x-x_i|)max(0,1-|y-y_i|)</script></span>​​<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">\varphi(x,y)</span><script type="math/tex">\varphi(x,y)</script></span>表示坐标为<span class="arithmatex"><span class="MathJax_Preview">(x,y)</span><script type="math/tex">(x,y)</script></span>的像素插值后的结果</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">(x_i,y_i)</span><script type="math/tex">(x_i,y_i)</script></span>表示<span class="arithmatex"><span class="MathJax_Preview">(x,y)</span><script type="math/tex">(x,y)</script></span>周围临近的四个坐标</li>
+<li><span class="arithmatex">\(\varphi(x,y)=\Sigma_{i,j=1}\varphi(x_i,y_i)max(0,1-|x-x_i|)max(0,1-|y-y_i|)\)</span>​​<ul>
+<li><span class="arithmatex">\(\varphi(x,y)\)</span>表示坐标为<span class="arithmatex">\((x,y)\)</span>的像素插值后的结果</li>
+<li><span class="arithmatex">\((x_i,y_i)\)</span>表示<span class="arithmatex">\((x,y)\)</span>周围临近的四个坐标</li>
 <li>双线性插值的本质：以最近几个像素的距离作为权重，对像素值加权平均，某个像素的权重值等于其对角像素与中心下像素构成的矩阵面积成正比</li>
 </ul>
 </li>
@@ -1582,9 +1582,9 @@
 <p>损失函数</p>
 <ul>
 <li>Focal loss<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">loss= \Sigma_i\alpha(1-p_i)^{\gamma}*y_i*log(p_i)</span><script type="math/tex">loss= \Sigma_i\alpha(1-p_i)^{\gamma}*y_i*log(p_i)</script></span>​​​​​​​​​</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">(1-p_i)^{\gamma}</span><script type="math/tex">(1-p_i)^{\gamma}</script></span>​​，<span class="arithmatex"><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span>​越小（困难样本），损失越大</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>是平衡因子</li>
+<li><span class="arithmatex">\(loss= \Sigma_i\alpha(1-p_i)^{\gamma}*y_i*log(p_i)\)</span>​​​​​​​​​</li>
+<li><span class="arithmatex">\((1-p_i)^{\gamma}\)</span>​​，<span class="arithmatex">\(p_i\)</span>​越小（困难样本），损失越大</li>
+<li><span class="arithmatex">\(\alpha\)</span>是平衡因子</li>
 </ul>
 </li>
 <li>Focal loss与OHEM的区别与联系<ul>
@@ -1602,16 +1602,16 @@
 <li>
 <p>FPN中concate与add有什么区别，从反向传播的角度解释？</p>
 <ul>
-<li>add操作:<span class="arithmatex"><span class="MathJax_Preview">z=[x_i+x_j]W_x</span><script type="math/tex">z=[x_i+x_j]W_x</script></span>​</li>
-<li>concat操作：<span class="arithmatex"><span class="MathJax_Preview">z=[x_i;x_j]W_y</span><script type="math/tex">z=[x_i;x_j]W_y</script></span>​</li>
-<li>从反向传播的角度来说，个人理解，add与concat一致，因为可以找到一对<span class="arithmatex"><span class="MathJax_Preview">W_x;W_y</span><script type="math/tex">W_x;W_y</script></span>使得add操作与concat操作结果相等，也可以找到一组参数，使得反传的残差相等</li>
+<li>add操作:<span class="arithmatex">\(z=[x_i+x_j]W_x\)</span>​</li>
+<li>concat操作：<span class="arithmatex">\(z=[x_i;x_j]W_y\)</span>​</li>
+<li>从反向传播的角度来说，个人理解，add与concat一致，因为可以找到一对<span class="arithmatex">\(W_x;W_y\)</span>使得add操作与concat操作结果相等，也可以找到一组参数，使得反传的残差相等</li>
 </ul>
 </li>
 <li>
 <p>语义分割中mIoU计算公式？</p>
 <ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">mIoU=\Sigma \frac{IoU_i}{N}</span><script type="math/tex">mIoU=\Sigma \frac{IoU_i}{N}</script></span>​​​</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">IoU_i=\frac{TP_i}{TP_i+FP_i+FN_i}</span><script type="math/tex">IoU_i=\frac{TP_i}{TP_i+FP_i+FN_i}</script></span>​;分母是所有预测为该类别的像素点</li>
+<li><span class="arithmatex">\(mIoU=\Sigma \frac{IoU_i}{N}\)</span>​​​</li>
+<li><span class="arithmatex">\(IoU_i=\frac{TP_i}{TP_i+FP_i+FN_i}\)</span>​;分母是所有预测为该类别的像素点</li>
 </ul>
 </li>
 <li>
@@ -1656,18 +1656,17 @@
 <p>旋转变换推导？</p>
 </li>
 <li>
-<p><span class="arithmatex"><span class="MathJax_Preview">[x,y]=[\cos\alpha,\sin\alpha]</span><script type="math/tex">[x,y]=[\cos\alpha,\sin\alpha]</script></span>​​</p>
+<p><span class="arithmatex">\([x,y]=[\cos\alpha,\sin\alpha]\)</span>​​</p>
 <ul>
 <li>
-<p><span class="arithmatex"><span class="MathJax_Preview">[x',y']=[\cos(\alpha+\beta),\sin(\alpha+\beta)]</span><script type="math/tex">[x',y']=[\cos(\alpha+\beta),\sin(\alpha+\beta)]</script></span>​</p>
+<p><span class="arithmatex">\([x',y']=[\cos(\alpha+\beta),\sin(\alpha+\beta)]\)</span>​</p>
 </li>
 <li>
 <p>$$
     [x',y']=[x,y]\begin{bmatrix}</p>
-<div class="codehilite"><pre><span></span><code>-cos\alpha &amp; sin\beta\\\\
+<div class="highlight"><pre><span></span><code>-cos\alpha &amp; sin\beta\\\\
 sin\beta &amp; cos\alpha
 </code></pre></div>
-
 <p>\end{bmatrix}
 $$</p>
 </li>
@@ -1707,7 +1706,7 @@ $$</p>
 <p>SPPNet(spatial pyramid pooling)</p>
 <ul>
 <li>是一种特征值resize的方法，考虑到不同目标的感兴趣区域的尺寸各不相同，无法直接连接全连接层做分类回归任务，而SPPNet起到了中间桥梁的作用，将不同尺寸的feature，变化到相同尺寸<ul>
-<li>是一种适应的池化操作，根据输入feature map的尺寸与输出feature map的尺寸确定pooling的宽度，<span class="arithmatex"><span class="MathJax_Preview">kernerl\_size=ceil(input\_feature\_size/output\_feature\_size)</span><script type="math/tex">kernerl\_size=ceil(input\_feature\_size/output\_feature\_size)</script></span></li>
+<li>是一种适应的池化操作，根据输入feature map的尺寸与输出feature map的尺寸确定pooling的宽度，<span class="arithmatex">\(kernerl\_size=ceil(input\_feature\_size/output\_feature\_size)\)</span></li>
 </ul>
 </li>
 </ul>
@@ -1765,7 +1764,7 @@ $$</p>
 <p>损失函数</p>
 <ul>
 <li>度量学习损失函数的起源<ul>
-<li>使用softmax优化损失函数的过程就是最大化softmax分子的过程，实质上就是最大化<span class="arithmatex"><span class="MathJax_Preview">W_jf_x</span><script type="math/tex">W_jf_x</script></span>​的过程，其中<span class="arithmatex"><span class="MathJax_Preview">f_x</span><script type="math/tex">f_x</script></span>是输入向量，<span class="arithmatex"><span class="MathJax_Preview">W_j</span><script type="math/tex">W_j</script></span>是类别权重，最大化的过程就等价于两个向量夹角不断减小的过程，那么我们可以将权重<span class="arithmatex"><span class="MathJax_Preview">W_j</span><script type="math/tex">W_j</script></span>视作是<span class="arithmatex"><span class="MathJax_Preview">f_x</span><script type="math/tex">f_x</script></span>的类别中心，所以，文字识别中，取全连接层权重<span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span>做聚类可以获得形近字。</li>
+<li>使用softmax优化损失函数的过程就是最大化softmax分子的过程，实质上就是最大化<span class="arithmatex">\(W_jf_x\)</span>​的过程，其中<span class="arithmatex">\(f_x\)</span>是输入向量，<span class="arithmatex">\(W_j\)</span>是类别权重，最大化的过程就等价于两个向量夹角不断减小的过程，那么我们可以将权重<span class="arithmatex">\(W_j\)</span>视作是<span class="arithmatex">\(f_x\)</span>的类别中心，所以，文字识别中，取全连接层权重<span class="arithmatex">\(W\)</span>做聚类可以获得形近字。</li>
 </ul>
 </li>
 <li>center loss<ul>
@@ -1773,7 +1772,7 @@ $$</p>
 </ul>
 </li>
 <li>amsoftmax<ul>
-<li>在softmax的基础上做了一些改进，将<span class="arithmatex"><span class="MathJax_Preview">W_jf_x</span><script type="math/tex">W_jf_x</script></span>​​​归一化，表示余弦距离的含义，​额外增加margin，控制类间距</li>
+<li>在softmax的基础上做了一些改进，将<span class="arithmatex">\(W_jf_x\)</span>​​​归一化，表示余弦距离的含义，​额外增加margin，控制类间距</li>
 </ul>
 </li>
 </ul>

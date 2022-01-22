@@ -849,7 +849,7 @@
 <li>多张卡共享一个BN，得到全局统计量</li>
 <li>比较直觉的做法是：先计算所有卡的均值，在将均值传回所有的卡计算方差，得到统计量</li>
 <li>计算策略</li>
-<li>计算每张卡上的<span class="arithmatex"><span class="MathJax_Preview">\Sigma X_i</span><script type="math/tex">\Sigma X_i</script></span>以及<span class="arithmatex"><span class="MathJax_Preview">\Sigma X_i^2</span><script type="math/tex">\Sigma X_i^2</script></span>（均值方差都可以由这两个量计算得到），同步一次，计算BN </li>
+<li>计算每张卡上的<span class="arithmatex">\(\Sigma X_i\)</span>以及<span class="arithmatex">\(\Sigma X_i^2\)</span>（均值方差都可以由这两个量计算得到），同步一次，计算BN </li>
 <li><code>model = torch.nn.SyncBatchNorm.convert_sync_batchnorm(model).to(device)</code></li>
 </ul>
 </li>

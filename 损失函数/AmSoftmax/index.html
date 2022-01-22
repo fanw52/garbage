@@ -739,8 +739,8 @@
 <li>引入可学习参数，视作是类别中心，引入余弦距离的概念，最小化类别中心向量与target的距离</li>
 <li>看本质</li>
 <li><img alt="image-20211129233829624" src="../AmSoftmax.assets/image-20211129233829624.png" /></li>
-<li>蓝色扇形为一类样本所在的区域，<span class="arithmatex"><span class="MathJax_Preview">W_1</span><script type="math/tex">W_1</script></span>和<span class="arithmatex"><span class="MathJax_Preview">W_2</span><script type="math/tex">W_2</script></span>分别表示两个类别的一个样本，引入决策边界距离的margin,会有 <span class="arithmatex"><span class="MathJax_Preview">W_1P_1-m=W_2P_2</span><script type="math/tex">W_1P_1-m=W_2P_2</script></span>，增大m即增大类间距，类内距会相应地减少</li>
-<li>将<span class="arithmatex"><span class="MathJax_Preview">softmax</span><script type="math/tex">softmax</script></span>中的<span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span>和<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>归一化【余弦距离度量】，并且引入margin，最大化决策边界【拥有margin的情况，w和x的角度要更小才能与没有margin的情况相等】</li>
+<li>蓝色扇形为一类样本所在的区域，<span class="arithmatex">\(W_1\)</span>和<span class="arithmatex">\(W_2\)</span>分别表示两个类别的一个样本，引入决策边界距离的margin,会有 <span class="arithmatex">\(W_1P_1-m=W_2P_2\)</span>，增大m即增大类间距，类内距会相应地减少</li>
+<li>将<span class="arithmatex">\(softmax\)</span>中的<span class="arithmatex">\(W\)</span>和<span class="arithmatex">\(X\)</span>归一化【余弦距离度量】，并且引入margin，最大化决策边界【拥有margin的情况，w和x的角度要更小才能与没有margin的情况相等】</li>
 </ul>
 
               

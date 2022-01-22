@@ -871,16 +871,16 @@
 <ul>
 <li>决策树的构造准则</li>
 <li>信息增益<ul>
-<li>数据集D中，K个类别的熵 <span class="arithmatex"><span class="MathJax_Preview">H(D)</span><script type="math/tex">H(D)</script></span></li>
-<li>某个特征对于数据集D的条件熵<span class="arithmatex"><span class="MathJax_Preview">H(D|A)</span><script type="math/tex">H(D|A)</script></span>​​,取出所有包含特征A的样本子集<span class="arithmatex"><span class="MathJax_Preview">D_i</span><script type="math/tex">D_i</script></span>​​，然后计算样本子集中的第k类样本<span class="arithmatex"><span class="MathJax_Preview">D_{ik}</span><script type="math/tex">D_{ik}</script></span>​​的条件熵</li>
-<li>信息增益<span class="arithmatex"><span class="MathJax_Preview">g(D,A) = H(D)-H(D|A)</span><script type="math/tex">g(D,A) = H(D)-H(D|A)</script></span>​</li>
+<li>数据集D中，K个类别的熵 <span class="arithmatex">\(H(D)\)</span></li>
+<li>某个特征对于数据集D的条件熵<span class="arithmatex">\(H(D|A)\)</span>​​,取出所有包含特征A的样本子集<span class="arithmatex">\(D_i\)</span>​​，然后计算样本子集中的第k类样本<span class="arithmatex">\(D_{ik}\)</span>​​的条件熵</li>
+<li>信息增益<span class="arithmatex">\(g(D,A) = H(D)-H(D|A)\)</span>​</li>
 <li>信息增益：当前样本集合的熵与包含某个特征A的样本集合的上熵的差值</li>
 </ul>
 </li>
 <li>信息增益率<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">g_R(D,A) = g(D,A)/H_A(D)</span><script type="math/tex">g_R(D,A) = g(D,A)/H_A(D)</script></span>​​​</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">g(D,A)</span><script type="math/tex">g(D,A)</script></span>表示数据集D中特征A的信息增益</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">H_A(D)</span><script type="math/tex">H_A(D)</script></span>​​表示数据集D中A的信息熵</li>
+<li><span class="arithmatex">\(g_R(D,A) = g(D,A)/H_A(D)\)</span>​​​</li>
+<li><span class="arithmatex">\(g(D,A)\)</span>表示数据集D中特征A的信息增益</li>
+<li><span class="arithmatex">\(H_A(D)\)</span>​​表示数据集D中A的信息熵</li>
 </ul>
 </li>
 <li>基尼指数<ul>
@@ -893,13 +893,13 @@
 <li>采用决策树作为弱分类器的梯度提升算法，通常是CART</li>
 <li>分类树，每个节点设定一个分类结果</li>
 <li>回归树，每个节点的结果，可以表示为当前节点所有数据的平均</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">Loss=f(x)+|w|</span><script type="math/tex">Loss=f(x)+|w|</script></span></li>
+<li><span class="arithmatex">\(Loss=f(x)+|w|\)</span></li>
 <li>损失函数包含两项，第一项为了降低偏差，第二项通过正则化的手段，降低模型的复杂度，控制方差</li>
 <li>GBDT中会给每个样本赋值</li>
-<li>N个函数拟合一批数据，每个函数拟合的是上一批数据的残差：<span class="arithmatex"><span class="MathJax_Preview">y-f(x)</span><script type="math/tex">y-f(x)</script></span>​ ，这个残差也可以表示为负梯度</li>
+<li>N个函数拟合一批数据，每个函数拟合的是上一批数据的残差：<span class="arithmatex">\(y-f(x)\)</span>​ ，这个残差也可以表示为负梯度</li>
 <li>每个函数是怎么拟合的？</li>
 <li>假设拟合每个函数使用的是，决策树，那么如何构建决策树呢？<ul>
-<li>给定一批数据<span class="arithmatex"><span class="MathJax_Preview">(x_1,y_1),(x_2,y_2),(x_3,y_3),..,(x_n,y_n)</span><script type="math/tex">(x_1,y_1),(x_2,y_2),(x_3,y_3),..,(x_n,y_n)</script></span>​ ，需要通过信息增益，信息增益比，或基尼系数等指标选定一个特征，用于构建子树，随后，当前这批数据会被分割成若若干份，随后使用相同的办法，对继续构建树</li>
+<li>给定一批数据<span class="arithmatex">\((x_1,y_1),(x_2,y_2),(x_3,y_3),..,(x_n,y_n)\)</span>​ ，需要通过信息增益，信息增益比，或基尼系数等指标选定一个特征，用于构建子树，随后，当前这批数据会被分割成若若干份，随后使用相同的办法，对继续构建树</li>
 </ul>
 </li>
 </ul>
@@ -919,13 +919,13 @@
 <li>当前转态仅与前一个状态有关</li>
 <li>考虑了隐状态之间的转移以及以及隐状态到观测转态的输出概率</li>
 <li>是一种对隐状态和观测状态序列的联合概率分布建模的生成式模型</li>
-<li>状态转移矩阵，<span class="arithmatex"><span class="MathJax_Preview">N*N</span><script type="math/tex">N*N</script></span>的矩阵</li>
-<li>观测概率矩阵，<span class="arithmatex"><span class="MathJax_Preview">N*M</span><script type="math/tex">N*M</script></span>​​的矩阵</li>
+<li>状态转移矩阵，<span class="arithmatex">\(N*N\)</span>的矩阵</li>
+<li>观测概率矩阵，<span class="arithmatex">\(N*M\)</span>​​的矩阵</li>
 <li>训练过程</li>
 <li>有隐状态的，使用极大似然估计，计算参数<ul>
 <li>状态转移矩阵</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">a_{ij}=P(i_{t+1}|i_t)</span><script type="math/tex">a_{ij}=P(i_{t+1}|i_t)</script></span>​</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">b_{ij} = P(o_t|i_t)</span><script type="math/tex">b_{ij} = P(o_t|i_t)</script></span>​</li>
+<li><span class="arithmatex">\(a_{ij}=P(i_{t+1}|i_t)\)</span>​</li>
+<li><span class="arithmatex">\(b_{ij} = P(o_t|i_t)\)</span>​</li>
 </ul>
 </li>
 <li>序列标注过程（解码过程）</li>
@@ -964,20 +964,20 @@
 <li>HMM 中的概率具有一定的限制条件，如0到1之间、概率和为1等，而 CRF 中特征函数对应的权重大小没有限制，可以为任意值</li>
 <li>CRF是判别模型，HMM是生成模型，计算方式不同<ul>
 <li>生成模型 </li>
-<li><span class="arithmatex"><span class="MathJax_Preview">P(X,Y)=P(X|Y)*P(Y)</span><script type="math/tex">P(X,Y)=P(X|Y)*P(Y)</script></span>​</li>
+<li><span class="arithmatex">\(P(X,Y)=P(X|Y)*P(Y)\)</span>​</li>
 <li>$ P(Y|X)=P(X,Y)|P(X)$​​<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">P(X)</span><script type="math/tex">P(X)</script></span>​​应该是观测概率，即字符串概率</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">P(X,Y)</span><script type="math/tex">P(X,Y)</script></span>​​是联合概率，即字符串与标注结果的概率</li>
+<li><span class="arithmatex">\(P(X)\)</span>​​应该是观测概率，即字符串概率</li>
+<li><span class="arithmatex">\(P(X,Y)\)</span>​​是联合概率，即字符串与标注结果的概率</li>
 </ul>
 </li>
 <li>判别模型</li>
-<li>直接对<span class="arithmatex"><span class="MathJax_Preview">P(Y|X)</span><script type="math/tex">P(Y|X)</script></span>​​建模</li>
+<li>直接对<span class="arithmatex">\(P(Y|X)\)</span>​​建模</li>
 </ul>
 </li>
 <li>LSTM+CRF中<ul>
 <li>观测序列与隐状态之间所构建的发射概率表现为lstm对输入序列编码的过程</li>
-<li>隐状态之间的转移概率表现为<span class="arithmatex"><span class="MathJax_Preview">N*N</span><script type="math/tex">N*N</script></span>​的转移概率矩阵的学习过程。</li>
-<li>标签个数为N，长度为T的序列可能有<span class="arithmatex"><span class="MathJax_Preview">N^T</span><script type="math/tex">N^T</script></span>种路径的可能</li>
+<li>隐状态之间的转移概率表现为<span class="arithmatex">\(N*N\)</span>​的转移概率矩阵的学习过程。</li>
+<li>标签个数为N，长度为T的序列可能有<span class="arithmatex">\(N^T\)</span>种路径的可能</li>
 <li>最终的损失函数由两部分组成，发射概率与转移概率,本质还是计算路径概率，通过动态规划算法降低复杂度，并用最大似然估计优化</li>
 </ul>
 </li>
