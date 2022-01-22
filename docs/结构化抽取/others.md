@@ -31,7 +31,7 @@
       * 存在的问题：识别的结果有噪音，无法完全用正则的方法匹配出来，尝试使用NER方法结合正则处理
 
     * NER
-      ![身份证NER结果比较](../信息抽取/data/idcard_ner.png)
+      ![身份证NER结果比较](../其他/data/idcard_ner.png)
     
 ## 其他
 * Levenshtein中的opcodes方法可以获取strA到strB每个字符的变换类型['insert','replace','delete','add']
