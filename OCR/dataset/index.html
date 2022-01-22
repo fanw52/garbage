@@ -1,0 +1,1043 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
+    
+    
+      
+        <title>开源数据集 - 个人垃圾场</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="个人垃圾场" class="md-header__button md-logo" aria-label="个人垃圾场" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            个人垃圾场
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              开源数据集
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="个人垃圾场" class="md-nav__button md-logo" aria-label="个人垃圾场" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    个人垃圾场
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        机器学习基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          文字识别
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文字识别" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          文字识别
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          开源数据集
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        开源数据集
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ocr" class="md-nav__link">
+    通用中英文OCR数据集
+  </a>
+  
+    <nav class="md-nav" aria-label="通用中英文OCR数据集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1icdar2019-lsvt" class="md-nav__link">
+    1、ICDAR2019-LSVT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2icdar2017-rctw-17" class="md-nav__link">
+    2、ICDAR2017-RCTW-17
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、中文街景文字识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、中文文档文字识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5icdar2019-art" class="md-nav__link">
+    5、ICDAR2019-ArT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据合成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E5%AD%97%E6%A3%80%E6%B5%8B/%E6%96%87%E5%AD%97%E6%A3%80%E6%B5%8B/" class="md-nav__link">
+        文字检测
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" class="md-nav__link">
+        文字识别
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          目标检测
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="目标检测" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          目标检测
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/YOLO_v5/" class="md-nav__link">
+        YOLO-v5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/YOLOX/" class="md-nav__link">
+        YOLOX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/YOLO_Faster_v2/" class="md-nav__link">
+        YOLO-Faster-v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Paper/DETR/" class="md-nav__link">
+        DETR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          结构化抽取
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="结构化抽取" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          结构化抽取
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%93%E6%9E%84%E5%8C%96%E6%8A%BD%E5%8F%96/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="md-nav__link">
+        数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%93%E6%9E%84%E5%8C%96%E6%8A%BD%E5%8F%96/layoutlm/" class="md-nav__link">
+        LayoutLM系列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%93%E6%9E%84%E5%8C%96%E6%8A%BD%E5%8F%96/paper/StrucText/" class="md-nav__link">
+        StrucTexT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          表格识别
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表格识别" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          表格识别
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/" class="md-nav__link">
+        表格识别
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          损失函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="损失函数" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          损失函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/AmSoftmax/" class="md-nav__link">
+        AmSoftmax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/CenterLoss/" class="md-nav__link">
+        CenterLoss
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          数据增强
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据增强" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          数据增强
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
+        图像数据增强
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          服务部署
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="服务部署" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          服务部署
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/TensorRT/" class="md-nav__link">
+        TensorRT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ocr" class="md-nav__link">
+    通用中英文OCR数据集
+  </a>
+  
+    <nav class="md-nav" aria-label="通用中英文OCR数据集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1icdar2019-lsvt" class="md-nav__link">
+    1、ICDAR2019-LSVT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2icdar2017-rctw-17" class="md-nav__link">
+    2、ICDAR2017-RCTW-17
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、中文街景文字识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、中文文档文字识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5icdar2019-art" class="md-nav__link">
+    5、ICDAR2019-ArT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据合成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="_1">开源数据集<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#_1">开源数据集</a><ul>
+<li><a href="#ocr">通用中英文OCR数据集</a><ul>
+<li><a href="#1icdar2019-lsvt">1、ICDAR2019-LSVT</a></li>
+<li><a href="#2icdar2017-rctw-17">2、ICDAR2017-RCTW-17</a></li>
+<li><a href="#3">3、中文街景文字识别</a></li>
+<li><a href="#4">4、中文文档文字识别</a></li>
+<li><a href="#5icdar2019-art">5、ICDAR2019-ArT</a></li>
+</ul>
+</li>
+<li><a href="#_2">数据合成</a></li>
+<li><a href="#_3">参考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul>
+<li>优先考虑数据，模型只能无限拟合数据的上限</li>
+</ul>
+<h2 id="ocr">通用中英文OCR数据集<a class="headerlink" href="#ocr" title="Permanent link">&para;</a></h2>
+<p>这里整理了常用中文数据集，持续更新中，欢迎各位小伙伴贡献数据集～
+- <a href="#ICDAR2019-LSVT">ICDAR2019-LSVT</a>
+- <a href="#ICDAR2017-RCTW-17">ICDAR2017-RCTW-17</a>
+- <a href="#中文街景文字识别">中文街景文字识别</a>
+- <a href="#中文文档文字识别">中文文档文字识别</a>
+- <a href="#ICDAR2019-ArT">ICDAR2019-ArT</a></p>
+<h3 id="1icdar2019-lsvt">1、ICDAR2019-LSVT<a class="headerlink" href="#1icdar2019-lsvt" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据来源</strong>：<a href="https://ai.baidu.com/broad/introduction?dataset=lsvt">https://ai.baidu.com/broad/introduction?dataset=lsvt</a></li>
+<li><strong>数据简介</strong>： 共45w中文街景图像，包含5w（2w测试+3w训练）全标注数据（文本坐标+文本内容），40w弱标注数据（仅文本内容），如下图所示：<br />
+<img alt="" src="../dataset.assets/LSVT_1.jpg" /><br />
+    (a) 全标注数据<br />
+<img alt="" src="../dataset.assets/LSVT_2.jpg" /><br />
+    (b) 弱标注数据  </li>
+<li><strong>下载地址</strong>：<a href="https://ai.baidu.com/broad/download?dataset=lsvt">https://ai.baidu.com/broad/download?dataset=lsvt</a></li>
+<li><strong>说明</strong>：其中，test数据集的label目前没有开源，如要评估结果，可以去官网提交：<a href="https://rrc.cvc.uab.es/?ch=16">https://rrc.cvc.uab.es/?ch=16</a></li>
+</ul>
+<h3 id="2icdar2017-rctw-17">2、ICDAR2017-RCTW-17<a class="headerlink" href="#2icdar2017-rctw-17" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据来源</strong>：<a href="https://rctw.vlrlab.net/">https://rctw.vlrlab.net/</a></li>
+<li><strong>数据简介</strong>：共包含12,000+图像，大部分图片是通过手机摄像头在野外采集的。有些是截图。这些图片展示了各种各样的场景，包括街景、海报、菜单、室内场景和手机应用程序的截图。
+    <img alt="" src="../dataset.assets/rctw.jpg" /></li>
+<li><strong>下载地址</strong>：<a href="https://rctw.vlrlab.net/dataset/">https://rctw.vlrlab.net/dataset/</a></li>
+</ul>
+<h3 id="3">3、中文街景文字识别<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据来源</strong>：<a href="https://aistudio.baidu.com/aistudio/competition/detail/8">https://aistudio.baidu.com/aistudio/competition/detail/8</a></li>
+<li><strong>数据简介</strong>：ICDAR2019-LSVT行识别任务，共包括29万张图片，其中21万张图片作为训练集（带标注），8万张作为测试集（无标注）。数据集采自中国街景，并由街景图片中的文字行区域（例如店铺标牌、地标等等）截取出来而形成。所有图像都经过一些预处理，将文字区域利用仿射变化，等比映射为一张高为48像素的图片，如图所示：<br />
+<img alt="" src="../dataset.assets/ch_street_rec_1.png" /><br />
+    (a) 标注：魅派集成吊顶<br />
+<img alt="" src="../dataset.assets/ch_street_rec_2.png" /><br />
+    (b) 标注：母婴用品连锁  </li>
+<li><strong>下载地址</strong>
+<a href="https://aistudio.baidu.com/aistudio/datasetdetail/8429">https://aistudio.baidu.com/aistudio/datasetdetail/8429</a></li>
+</ul>
+<h3 id="4">4、中文文档文字识别<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据来源</strong>：<a href="https://github.com/YCG09/chinese_ocr">https://github.com/YCG09/chinese_ocr</a>  </li>
+<li><strong>数据简介</strong>：  <ul>
+<li>共约364万张图片，按照99:1划分成训练集和验证集。</li>
+<li>数据利用中文语料库（新闻 + 文言文），通过字体、大小、灰度、模糊、透视、拉伸等变化随机生成</li>
+<li>包含汉字、英文字母、数字和标点共5990个字符（字符集合：<a href="https://github.com/YCG09/chinese_ocr/blob/master/train/char_std_5990.txt">https://github.com/YCG09/chinese_ocr/blob/master/train/char_std_5990.txt</a> ）</li>
+<li>每个样本固定10个字符，字符随机截取自语料库中的句子</li>
+<li>图片分辨率统一为280x32<br />
+<img alt="" src="../dataset.assets/ch_doc1.jpg" /><br />
+<img alt="" src="../dataset.assets/ch_doc3.jpg" />  </li>
+</ul>
+</li>
+<li><strong>下载地址</strong>：<a href="https://pan.baidu.com/s/1QkI7kjah8SPHwOQ40rS1Pw">https://pan.baidu.com/s/1QkI7kjah8SPHwOQ40rS1Pw</a> (密码：lu7m)</li>
+</ul>
+<h3 id="5icdar2019-art">5、ICDAR2019-ArT<a class="headerlink" href="#5icdar2019-art" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据来源</strong>：<a href="https://ai.baidu.com/broad/introduction?dataset=art">https://ai.baidu.com/broad/introduction?dataset=art</a></li>
+<li><strong>数据简介</strong>：共包含10,166张图像，训练集5603图，测试集4563图。由Total-Text、SCUT-CTW1500、Baidu Curved Scene Text (ICDAR2019-LSVT部分弯曲数据) 三部分组成，包含水平、多方向和弯曲等多种形状的文本。
+    <img alt="" src="../dataset.assets/ArT.jpg" /></li>
+<li><strong>下载地址</strong>：<a href="https://ai.baidu.com/broad/download?dataset=art">https://ai.baidu.com/broad/download?dataset=art</a></li>
+</ul>
+<h2 id="_2">数据合成<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Sanster/text_renderer">text_renderer</a></li>
+<li><a href="https://github.com/ankush-me/SynthText">SynthText</a></li>
+<li><a href="https://github.com/JarveeLee/SynthText_Chinese_version">SynthText_Chinese_version</a></li>
+<li><a href="https://github.com/Belval/TextRecognitionDataGenerator">TextRecognitionDataGenerator</a></li>
+<li><a href="https://github.com/MhLiao/SynthText3D">SynthText3D</a></li>
+<li><a href="https://github.com/Jyouhou/UnrealText/">UnrealText</a></li>
+<li><a href="https://github.com/clovaai/synthtiger">SynthTIGER</a></li>
+</ul>
+<h2 id="_3">参考<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 机器学习基础" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              机器学习基础
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E6%96%87%E5%AD%97%E6%A3%80%E6%B5%8B/%E6%96%87%E5%AD%97%E6%A3%80%E6%B5%8B/" class="md-footer__link md-footer__link--next" aria-label="Next: 文字检测" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              文字检测
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.01de222e.min.js"></script>
+      
+    
+  </body>
+</html>
